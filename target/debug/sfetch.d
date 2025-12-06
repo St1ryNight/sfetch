@@ -1,0 +1,1 @@
+/Users/mconn/sfetch/target/debug/sfetch: /Users/mconn/sfetch/src/architecture.rs /Users/mconn/sfetch/src/cpu.rs /Users/mconn/sfetch/src/main.rs /Users/mconn/sfetch/src/mem.rs /Users/mconn/sfetch/src/os.rs /Users/mconn/sfetch/src/pkg.rs
