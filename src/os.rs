@@ -35,3 +35,12 @@ pub fn get_os() -> String {
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
+#[cfg(target_os = "illumos")]
+pub fn get_os() -> String {
+    let output = Command::new("sh")
+        .arg("-c")
+        .arg("uname")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
