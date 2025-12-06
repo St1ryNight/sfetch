@@ -2,8 +2,9 @@
 use std::process::Command;
 #[cfg(target_os = "macos")]
 pub fn get_os() -> String {
-    let output = Command::new("sw_vers")
-        .arg("-productName")
+    let output = Command::new("sh")
+        .arg("-c")
+        .arg("system_profiler SPSoftwareDataType | grep \"System Version:\" | awk -F' ' '{print $3, $4}'")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
