@@ -1,0 +1,79 @@
+   0.004901417s  INFO prepare_target{force=false package_id=sfetch v0.1.0 (/Users/mconn/sfetch) target="sfetch"}: cargo::core::compiler::fingerprint: fingerprint error for sfetch v0.1.0 (/Users/mconn/sfetch)/Check { test: false }/TargetInner { name: "sfetch", doc: true, ..: with_path("/Users/mconn/sfetch/src/main.rs", Edition2024) }
+   0.005875459s  INFO prepare_target{force=false package_id=sfetch v0.1.0 (/Users/mconn/sfetch) target="sfetch"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/mconn/sfetch/target/debug/.fingerprint/sfetch-379bb15653dc77c3/bin-sfetch`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.019859250s  INFO prepare_target{force=false package_id=owo-colors v4.2.3 target="owo_colors"}: cargo::core::compiler::fingerprint: fingerprint error for owo-colors v4.2.3/Check { test: false }/TargetInner { ..: lib_target("owo_colors", ["lib"], "/Users/mconn/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/owo-colors-4.2.3/src/lib.rs", Edition2021) }
+   0.020020750s  INFO prepare_target{force=false package_id=owo-colors v4.2.3 target="owo_colors"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/mconn/sfetch/target/debug/.fingerprint/owo-colors-b57f76f96ead132f/lib-owo_colors`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.020382792s  INFO prepare_target{force=false package_id=sfetch v0.1.0 (/Users/mconn/sfetch) target="sfetch"}: cargo::core::compiler::fingerprint: fingerprint error for sfetch v0.1.0 (/Users/mconn/sfetch)/Check { test: true }/TargetInner { name: "sfetch", doc: true, ..: with_path("/Users/mconn/sfetch/src/main.rs", Edition2024) }
+   0.020389667s  INFO prepare_target{force=false package_id=sfetch v0.1.0 (/Users/mconn/sfetch) target="sfetch"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/mconn/sfetch/target/debug/.fingerprint/sfetch-9919fabe1b3d8941/test-bin-sfetch`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+    Checking owo-colors v4.2.3
+    Checking sfetch v0.1.0 (/Users/mconn/sfetch)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.44s
