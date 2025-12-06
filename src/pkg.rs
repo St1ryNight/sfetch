@@ -36,3 +36,21 @@ pub fn get_packages() -> String {
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
+#[cfg(target_os = "linux")]
+pub fn get_packages() {
+    let output = Command::new("sh")
+        .arg("-c")
+        .arg("echo ?")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
+#[cfg(target_os = "illumos")]
+pub fn get_packages() -> String {
+    let output = Command::new("sh")
+        .arg("-c")
+        .arg("echo ?")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
