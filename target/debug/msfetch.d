@@ -1,1 +1,0 @@
-/Users/mconn/msfetch/target/debug/msfetch: /Users/mconn/msfetch/src/architecture.rs /Users/mconn/msfetch/src/cpu.rs /Users/mconn/msfetch/src/main.rs /Users/mconn/msfetch/src/mem.rs /Users/mconn/msfetch/src/os.rs /Users/mconn/msfetch/src/pkg.rs
