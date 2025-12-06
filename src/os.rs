@@ -20,18 +20,18 @@ pub fn get_os() -> String {
 #[cfg(target_os = "openbsd")]
 pub fn get_os() -> String {
     let output = Command::new("sh")
-        .arg("-r")
-        .arg("uname")
+        .arg("-c")
+        .arg("uname -r")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
-#[cfg (target_os = "linux")]
-pub fn get_os() ->String {
+#[cfg(target_os = "linux")]
+pub fn get_os() -> String {
     let output = Command::new("sh")
         .arg("-c")
         .arg("hostnamectl | grep \"Operating System\" | cut -d: -f2")
         .output()
         .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string() 
+    String::from_utf8_lossy(&output.stdout).to_string()
 }

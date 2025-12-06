@@ -112,12 +112,3 @@ fn get_shell() -> String {
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
-#[cfg(target_os = "linux")]
-mod os {
-    pub fn main() -> Result<(), Box<dyn std::error::Error>> {
-        Err(Box::new(std::io::Error::new(
-            std::io::ErrorKind::Other,
-            "Sorry.  This program isn't for you.  But, if you upgrade to Linux, you will be quite pleased.",
-        )))
-    }
-}
