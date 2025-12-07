@@ -1,4 +1,4 @@
-# msfetch
+# sfetch
 A neofetch clone written in Rust supporting Macos, freebsd and openbsd
 ![img alt](https://github.com/St1ryNight/msfetch/blob/7cb27ea8264f571360591bfbba4a5f08b80bb0a6/screenshot.png)
 ## Requirements
@@ -6,7 +6,7 @@ A neofetch clone written in Rust supporting Macos, freebsd and openbsd
 
 ## Compile
 ```sh
-git clone https://github.com/St1ryNight/msfetch.git && cd msfetch/
+git clone https://github.com/St1ryNight/sfetch.git && cd msfetch/
 cargo run (executable lives in target/debug/
 ```
 ## read me 
