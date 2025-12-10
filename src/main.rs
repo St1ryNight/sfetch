@@ -51,7 +51,7 @@ fn fetch() {
             os_version.trim()
         ),
         format!("{}    -> {}", "CPU".white(), cpu.trim()),
-        format!("{}   -> {}", "PKGS".bright_blue(), pkg.trim()),
+        format!("{}   -> {}", "PKGS".blue(), pkg.trim()),
         format!("{}  -> {}", "SHELL".purple(), shell.trim()),
     ];
 
