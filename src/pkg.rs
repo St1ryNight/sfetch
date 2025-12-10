@@ -37,7 +37,7 @@ pub fn get_packages() -> String {
     String::from_utf8_lossy(&output.stdout).to_string()
 }
 #[cfg(target_os = "linux")]
-pub fn get_packages() {
+pub fn get_packages() -> String {
     let output = Command::new("sh")
         .arg("-c")
         .arg("echo ?")
