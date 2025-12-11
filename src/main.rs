@@ -11,7 +11,7 @@ use owo_colors::OwoColorize;
 #[allow(dead_code)]
 const LINUX_ASCII_COLOR: (u8, u8, u8) = (255, 215, 0);      
 #[allow(dead_code)]
-const MACOS_ASCII_COLOR: (u8, u8, u8) = (147, 112, 219);    
+const MACOS_ASCII_COLOR: (u8, u8, u8) = (255, 255, 255);    
 #[allow(dead_code)]
 const WINDOWS_ASCII_COLOR: (u8, u8, u8) = (0, 120, 215);    
 #[allow(dead_code)]
