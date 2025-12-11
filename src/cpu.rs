@@ -79,3 +79,13 @@ pub fn get_cpu() -> String {
         .trim()
         .to_string()
 }
+#[cfg(target_os = "windows")]
+pub fn get_cpu() -> String {
+    let output = Command::new("powershell")
+        .arg("-Command")
+        .arg("(Get-CimInstance -ClassName Win32_Processor).Name")
+        .output()
+        .expect("Failed to execute command");
+    let output_str = String::from_utf8_lossy(&output.stdout).to_string();
+    output_str.trim().to_string()
+}

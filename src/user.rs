@@ -1,55 +1,46 @@
-#[allow(unused_imports)]
 use std::process::Command;
 #[cfg(target_os = "macos")]
-pub fn get_os() -> String {
+pub fn get_username() -> String {
     let output = Command::new("sh")
         .arg("-c")
-        .arg("system_profiler SPSoftwareDataType | grep \"System Version:\" | awk -F' ' '{print $3, $4}'")
-        .output()
-        .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string()
-}
-#[cfg(target_os = "freebsd")]
-pub fn get_os() -> String {
-    let output = Command::new("sh")
-        .arg("-c")
-        .arg("uname")
-        .output()
-        .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string()
-}
-#[cfg(target_os = "openbsd")]
-pub fn get_os() -> String {
-    let output = Command::new("sh")
-        .arg("-c")
-        .arg("uname -r")
+        .arg("id -un")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
 #[cfg(target_os = "linux")]
-pub fn get_os() -> String {
-    let output = Command::new("sh")
-        .arg("-c")
-        .arg("hostnamectl | grep \"Operating System\" | cut -d: -f2")
+pub fn get_username() -> String {
+    let output = Command::new("whoami")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
+#[cfg(target_os = "freebsd")]
+pub fn get_username() -> String {
+    let output = Command::new("whoami")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}
+#[cfg(target_os = "openbsd")]
+pub fn get_username() -> String {
+    let output = Command::new("whoami")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
 #[cfg(target_os = "illumos")]
-pub fn get_os() -> String {
-    let output = Command::new("sh")
-        .arg("-c")
-        .arg("uname")
+pub fn get_username() -> String {
+    let output = Command::new("whoami")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
 #[cfg(target_os = "windows")]
-pub fn get_os() -> String {
+pub fn get_username() -> String {
     let output = Command::new("powershell")
         .arg("-Command")
-        .arg("(Get-CimInstance Win32_OperatingSystem).Caption")
+        .arg("whoami")
         .output()
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()

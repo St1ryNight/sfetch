@@ -54,3 +54,20 @@ pub fn get_packages() -> String {
         .expect("Failed to execute command");
     String::from_utf8_lossy(&output.stdout).to_string()
 }
+#[cfg(target_os = "windows")]
+pub fn get_packages() -> String {
+    let check_output = Command::new("powershell")
+        .arg("-command")
+        .arg("winget list | Select-Object -Skip 2 | Measure-Object -Line:w")
+        .output()
+        .expect("Failed to execute command");
+    if !check_output.status.success() {
+        return "?".to_string(); // Return "?" if winget is not available
+    }
+    let output = Command::new("powershell")
+        .arg("-Command")
+        .arg("winget list | Select-Object -Skip 2 | Measure-Object -Line")
+        .output()
+        .expect("Failed to execute command");
+    String::from_utf8_lossy(&output.stdout).to_string()
+}

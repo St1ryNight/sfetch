@@ -3,8 +3,10 @@ mod cpu;
 mod mem;
 mod os;
 mod pkg;
+mod shell;
+mod user;
+mod kernel;
 use owo_colors::OwoColorize;
-use std::process::Command;
 fn main() {
     fetch();
 }
@@ -20,22 +22,21 @@ fn fetch() {
 
 "#;
 
-    let username = get_username();
-    let hostname = get_hostname();
+    let username = user::get_username();
     let os_info = os::get_os();
     let memory = mem::get_memory();
-    let (os, os_version) = get_os_info();
-    let shell = get_shell();
+    let (os, os_version) = kernel::get_os_info();
+    let shell = shell::get_shell();
     let arch = architecture::get_cputype();
     let cpu = cpu::get_cpu();
     let pkg = pkg::get_packages();
 
     let side_text = [
         format!(
-            "{}   -> {}@{}",
+            "{}   -> {}",
             "USER".cyan(),
             username.trim(),
-            hostname.trim()
+          //  hostname.trim()
         ),
         format!(
             "{}     -> {} {}",
@@ -74,41 +75,13 @@ fn fetch() {
     }
 }
 
-fn get_username() -> String {
-    let output = Command::new("whoami")
-        .output()
-        .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string()
-}
 
-fn get_hostname() -> String {
-    let output = Command::new("uname")
-        .arg("-n")
-        .output()
-        .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string()
-}
 
-fn get_os_info() -> (String, String) {
-    let os_output = Command::new("uname")
-        .output()
-        .expect("Failed to execute command");
-    let os = String::from_utf8_lossy(&os_output.stdout).to_string();
+//fn get_hostname() -> String {
+//    let output = Command::new("uname")
+//        .arg("-n")
+//        .output()
+//        .expect("Failed to execute command");
+//    String::from_utf8_lossy(&output.stdout).to_string()
+//}
 
-    let version_output = Command::new("uname")
-        .arg("-r")
-        .output()
-        .expect("Failed to execute command");
-    let version = String::from_utf8_lossy(&version_output.stdout).to_string();
-
-    (os, version)
-}
-
-fn get_shell() -> String {
-    let output = Command::new("sh")
-        .arg("-c")
-        .arg("echo $SHELL")
-        .output()
-        .expect("Failed to execute command");
-    String::from_utf8_lossy(&output.stdout).to_string()
-}
