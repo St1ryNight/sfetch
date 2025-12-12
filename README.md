@@ -1,5 +1,6 @@
 # sfetch
 A neofetch clone written in Rust supporting Macos, Linux, Windows, FreeBSD, OpenBSD, and Illumos
+
 ![img alt](https://github.com/St1ryNight/sfetch/blob/4fcac7c4b53ce72f0fb068ef48c66fccf59d6bd1/screenshot.png)
 ## Requirements
 [+] Cargo
